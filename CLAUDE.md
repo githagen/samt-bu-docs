@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Hva er dette?
 
-SAMT-BU Dokumentasjon – et Hugo-basert dokumentasjonsnettsted for SAMT-BU-prosjektet
-(Samhandling og digitalisering innen oppvekst og utdanning).
+**SAMT-BU Docs** – et statisk Hugo-basert dokumentasjonsnettsted for prosjektet SAMT-BU
+(Sammenhengende tjenester for barn og unge). Én av flere dokumentasjonskanaler i prosjektet.
 Publiseres til GitHub Pages på `https://samt-bu.github.io/samt-bu-docs/`.
 
 ## Teknisk oppsett
@@ -37,10 +37,10 @@ CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automati
 ```
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
 content/                           # Alt innhold (Markdown med YAML frontmatter)
-  om/                              # «Om» – intro-seksjon (weight 1)
-    om-samt-bu/                    # Om SAMT-BU (weight 1)
+  om/                              # «Om SAMT-BU» – intro-seksjon (weight 1)
+    om-samt-bu/                    # Om prosjektet SAMT-BU (weight 1)
     om-dette-nettstedet/           # Om dette nettstedet (weight 2)
-    hvordan-bidra/                 # Hvordan bidra (weight 3)
+    hvordan-bidra/                 # Hvordan bidra (weight 3) – tre målgrupper: CMS, GitHub, lokal
   behov/                           # Behov (weight 10)
     use-cases/                     # 20 nummererte use cases (01–20)
     annet/                         # Annet (foreløpig)
@@ -49,7 +49,9 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
   arkitektur/                      # Arkitektur (weight 30)
     maalbildet/                    # Målbilde (weight 1) – kapabilitetskart, tjenester, applikasjoner, brukerreiser, prosesser, data, moenstre
     veikart/                       # Veikart (weight 2) – samme 7 underkapitler
-  loesning/                        # Løsninger (weight 40)
+  loesninger/                      # Løsninger (weight 40)
+    cms-loesninger/                # CMS-løsninger (weight 10)
+      samt-bu-docs/                # SAMT-BU Docs – teknisk dokumentasjon og administrasjonsveiledning
   rammeverk/                       # Rammeverk (weight 50)
     metodikk/                      # Metodikk (weight 30)
     juss/                          # Juss (weight 40)
@@ -60,9 +62,8 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
   innsikt/                         # Felles innsikt – lokal placeholder (weight 70)
   teams/                           # Teams (weight 80) – lokalt seksjonshode
     team-architecture/             # ← montert fra Hugo Module team-architecture
+    team-governance/               # ← montert fra Hugo Module team-governance
   utkast/                          # Utkast og innspill (weight 90) – ← montert fra Hugo Module samt-bu-drafts
-    kommuneforlaget/               # Kommuneforlaget (fra samt-bu-org-andre)
-      brukstilfelle-analyse/
 themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogikk ligger her
   layouts/partials/
     custom-head.html               # ⭐ HOVEDDELEN – all tilpasset CSS
@@ -237,9 +238,11 @@ Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 - Header med logo, tittel, Innhold/Content-dropdown, søk, språkvelger, Endre/Edit-dropdown (deep-link til Decap)
 - Scroll-fade, scroll-spy i TOC, collapsible sidebars med localStorage-persistens
 - Barn-liste på seksjonssider (midt- og høyrekolonne)
-- «Om» som første seksjon med tre underkapitler
+- «Om SAMT-BU» som første seksjon med tre underkapitler (Om prosjektet, Om dette nettstedet, Hvordan bidra)
 - 10 seksjoner i flat struktur direkte under `content/`
-- Hugo Module-integrasjon: team-architecture og samt-bu-drafts montert
+- Hugo Module-integrasjon: team-architecture, team-governance og samt-bu-drafts montert
+- Nettsted omdøpt til «SAMT-BU Docs», `loesning/` omdøpt til `loesninger/`
+- Ny dokumentasjonsstruktur: `loesninger/cms-loesninger/samt-bu-docs/` (teknisk dok. + administrasjonsveiledning)
 - 20 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
 - Decap CMS med norsk og engelsk portal, tospråklig redigering bekreftet
 - «Denne siden»/«This page» deep-link i Endre-dropdown for alle sider inkl. modul-sider (teams/team-architecture, utkast)
@@ -260,6 +263,7 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 | Modul | Repo | Montert under | Tittel |
 |-------|------|---------------|--------|
 | `github.com/SAMT-BU/team-architecture` | [team-architecture](https://github.com/SAMT-BU/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
+| `github.com/SAMT-BU/team-governance` | [team-governance](https://github.com/SAMT-BU/team-governance) | `content/teams/team-governance/` | Team governance |
 | `github.com/SAMT-BU/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-BU/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
 
 **Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<sti>/"`.
