@@ -4,4 +4,4 @@ title: Case
 linkTitle: Case
 weight: 5
 ---
-Her er en oversikt over identifiserte *caser* for samhandling innen oppvekst og utdanning. Videre utbygging og beskrivelse av *caser*  Prioriterte *caser* vil tas inn i arbeid med proof-of-concepts, piloterer og løsningsutvikling i prosjektet.
+Her er en oversikt over identifiserte *caser* for samhandling innen oppvekst og utdanning. Videre utbygging og beskrivelse av *caser* vil gjøres fortløpende. Prioriterte *caser* vil tas inn i arbeid med proof-of-concepts, piloterer og løsningsutvikling i prosjektet.
