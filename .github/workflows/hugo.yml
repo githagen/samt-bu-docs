@@ -62,16 +62,14 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Inject lastmod into module content
+        run: python3 .github/scripts/inject-lastmod.py
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Europe/Oslo
-          HUGO_MODULE_REPLACEMENTS: >-
-            github.com/SAMT-BU/team-architecture ->
-            ${{ github.workspace }}/.hugo-modules/team-architecture,
-            github.com/SAMT-BU/samt-bu-drafts ->
-            ${{ github.workspace }}/.hugo-modules/samt-bu-drafts
         run: |
           hugo \
             --gc \
