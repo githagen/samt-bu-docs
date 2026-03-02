@@ -39,6 +39,20 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      - name: Checkout team-architecture module
+        uses: actions/checkout@v4
+        with:
+          repository: SAMT-BU/team-architecture
+          path: .hugo-modules/team-architecture
+          fetch-depth: 0
+
+      - name: Checkout samt-bu-drafts module
+        uses: actions/checkout@v4
+        with:
+          repository: SAMT-BU/samt-bu-drafts
+          path: .hugo-modules/samt-bu-drafts
+          fetch-depth: 0
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -53,6 +67,11 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Europe/Oslo
+          HUGO_MODULE_REPLACEMENTS: >-
+            github.com/SAMT-BU/team-architecture ->
+            .hugo-modules/team-architecture,
+            github.com/SAMT-BU/samt-bu-drafts ->
+            .hugo-modules/samt-bu-drafts
         run: |
           hugo \
             --gc \
