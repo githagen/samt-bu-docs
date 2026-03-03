@@ -11,7 +11,7 @@ Publiseres til GitHub Pages på `https://samt-x.github.io/samt-bu-docs/`.
 ## Teknisk oppsett
 
 - **Rammeverk:** Hugo (Go-basert statisk nettstedsgenerator)
-- **Tema:** `hugo-theme-samt-bu` (git submodule fra `github.com/samt-bu/hugo-theme-samt-bu`, basert på Docdock/Altinn-tema)
+- **Tema:** `hugo-theme-samt-bu` (git submodule fra `github.com/samt-x/hugo-theme-samt-bu`, basert på Docdock/Altinn-tema)
   - Initialiseres ved kloning: `git submodule update --init --recursive`
   - Go-modul (`go.mod`/`go.sum`) styrer også tema-avhengigheten
 - **Konfigurasjon:** `hugo.toml` (baseURL, språk, tema, outputs, editURL)
@@ -45,10 +45,11 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
     use-cases/                     # 20 nummererte use cases (01–20)
     annet/                         # Annet (foreløpig)
   pilotering/                      # Piloter (weight 20)
-    pilot-1-arkitektur/
+    pilot-1/                       # 6 undermapper: overordnet-arkitektur, loesningsarkitektur, informasjonsarkitektur, juss, brukerreiser, annet
   arkitektur/                      # Arkitektur (weight 30)
-    maalbildet/                    # Målbilde (weight 1) – kapabilitetskart, tjenester, applikasjoner, brukerreiser, prosesser, data, moenstre
-    veikart/                       # Veikart (weight 2) – samme 7 underkapitler
+    maalbildet/                    # Målbilde (weight 1)
+    veikart/                       # Veikart (weight 2)
+    informasjonsarkitektur/        # Informasjonsarkitektur (weight 30, tidligere egen toppnivå-seksjon)
   loesninger/                      # Løsninger (weight 40)
     cms-loesninger/                # CMS-løsninger (weight 10)
       samt-bu-docs/                # SAMT-BU Docs – teknisk dokumentasjon og administrasjonsveiledning
@@ -58,11 +59,9 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
     styring/                       # Styring (weight 50)
     begrepsapparat/                # Begrepsapparat (weight 10)
     standarder/                    # Standarder (weight 20)
-  informasjonsmodeller/            # Informasjonsmodeller (weight 60)
   innsikt/                         # Felles innsikt – lokal placeholder (weight 70)
   teams/                           # Teams (weight 80) – lokalt seksjonshode
     team-architecture/             # ← montert fra Hugo Module team-architecture
-    team-governance/               # ← montert fra Hugo Module team-governance
     team-semantics/                # ← montert fra Hugo Module team-semantics
   utkast/                          # Utkast og innspill (weight 90) – ← montert fra Hugo Module samt-bu-drafts
 themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogikk ligger her
@@ -106,7 +105,7 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - **Engelsk portal:** `https://samt-x.github.io/samt-bu-docs/edit/en/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
 - **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
-- **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
+- **config.yml-mal:** `backend.name: github`, `repo: SAMT-X/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
 - **Header-dropdown («Endre»/«Edit»):** Erstatter gammel statisk knapp. Implementert i `edit-switcher.html`.
   - «Denne siden»/«This page» → deep-link til gjeldende side i riktig portal
   - «Andre valg»/«Other options» → CMS-oversikt (`/edit/` eller `/edit/en/`)
@@ -123,12 +122,12 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 
 | Mappe | Repo | Språk | Portalkorttittel | CMS-samlingsnavn |
 |-------|------|-------|------------------|-----------------|
-| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | Gjeldende dokumentasjon | Sider |
-| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | Current documentation | Pages |
-| `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur | Team arkitektur |
-| `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture | Team architecture |
-| `static/edit/utkast-nb/` | `SAMT-BU/samt-bu-drafts` | nb | Innspill og utkast | Innspill og utkast |
-| `static/edit/utkast-en/` | `SAMT-BU/samt-bu-drafts` | en | Inputs and drafts | Inputs and drafts |
+| `static/edit/docs-nb/` | `SAMT-X/samt-bu-docs` | nb | Gjeldende dokumentasjon | Sider |
+| `static/edit/docs-en/` | `SAMT-X/samt-bu-docs` | en | Current documentation | Pages |
+| `static/edit/arkitektur-nb/` | `SAMT-X/team-architecture` | nb | Team arkitektur | Team arkitektur |
+| `static/edit/arkitektur-en/` | `SAMT-X/team-architecture` | en | Team architecture | Team architecture |
+| `static/edit/utkast-nb/` | `SAMT-X/samt-bu-drafts` | nb | Innspill og utkast | Innspill og utkast |
+| `static/edit/utkast-en/` | `SAMT-X/samt-bu-drafts` | en | Inputs and drafts | Inputs and drafts |
 
 **NB-portaler har i tillegg:**
 - `locale: nb` i `config.yml`
@@ -142,7 +141,7 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 
 1. Opprett mappe `static/edit/<seksjon>-nb/` med:
    - `index.html` (← Portal-lenke → `../` + JS-lokale-blokk for NB)
-   - `config.yml` (`locales: [nb]`, `locale: nb`, `repo: SAMT-BU/<repo>`, `sortable_fields: ['weight', 'title']`)
+   - `config.yml` (`locales: [nb]`, `locale: nb`, `repo: SAMT-X/<repo>`, `sortable_fields: ['weight', 'title']`)
 2. Legg til kort i `static/edit/index.html`
 3. Gjenta for `-en/` uten `locale: nb` og uten JS-lokale, lenke → `../en/`
 
@@ -241,7 +240,7 @@ Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 - Barn-liste på seksjonssider (midt- og høyrekolonne)
 - «Om SAMT-BU» som første seksjon med tre underkapitler (Om prosjektet, Om dette nettstedet, Hvordan bidra)
 - 10 seksjoner i flat struktur direkte under `content/`
-- Hugo Module-integrasjon: team-architecture, team-governance, team-semantics og samt-bu-drafts montert
+- Hugo Module-integrasjon: team-architecture, team-semantics og samt-bu-drafts montert
 - Nettsted omdøpt til «SAMT-BU Docs», `loesning/` omdøpt til `loesninger/`
 - Ny dokumentasjonsstruktur: `loesninger/cms-loesninger/samt-bu-docs/` (teknisk dok. + administrasjonsveiledning)
 - 20 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
@@ -264,7 +263,6 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 | Modul | Repo | Montert under | Tittel |
 |-------|------|---------------|--------|
 | `github.com/SAMT-X/team-architecture` | [team-architecture](https://github.com/SAMT-X/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
-| `github.com/SAMT-X/team-governance` | [team-governance](https://github.com/SAMT-X/team-governance) | `content/teams/team-governance/` | Team governance |
 | `github.com/SAMT-X/team-semantics` | [team-semantics](https://github.com/SAMT-X/team-semantics) | `content/teams/team-semantics/` | Team semantikk |
 | `github.com/SAMT-X/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-X/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
 | `github.com/SAMT-X/solution-samt-bu-docs` | [solution-samt-bu-docs](https://github.com/SAMT-X/solution-samt-bu-docs) | `content/loesninger/cms-loesninger/samt-bu-docs/` | SAMT-BU Docs (teknisk dok.) |
@@ -295,7 +293,7 @@ hugo mod get github.com/SAMT-X/team-architecture@latest
    ```yaml
    - uses: actions/checkout@v4
      with:
-       repository: SAMT-BU/team-architecture
+       repository: SAMT-X/team-architecture
        path: .hugo-modules/team-architecture
        fetch-depth: 0
    ```
