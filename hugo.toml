@@ -68,11 +68,6 @@ enableGitInfo = true
   url = "rammeverk/"
   icon = "fa-cubes"
 
-[[params.navSwitcher]]
-  id = "informasjonsmodeller"
-  title = "Informasjonsmodeller"
-  url = "informasjonsmodeller/"
-  icon = "fa-database"
 
 [[params.navSwitcher]]
   id = "innsikt"
