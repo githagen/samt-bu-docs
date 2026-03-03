@@ -1,8 +1,8 @@
-github.com/SAMT-BU/samt-bu-drafts v0.0.0-20260301131909-3228fc47cd4c h1:yOsuhJsL2qTzo/GEyVku5YTnHrevrHWr0LW/1f8d2Oc=
-github.com/SAMT-BU/samt-bu-drafts v0.0.0-20260301131909-3228fc47cd4c/go.mod h1:HQkt8iekfiHvMRdq0iznUkpeh3S4A185oUvuOwUmpgQ=
-github.com/SAMT-BU/solution-samt-bu-docs v0.0.0-20260302230425-1219b056690d h1:aB87bhysPvn8nPoDw80+3stiQO6X3kb0UXhOgeERmP8=
-github.com/SAMT-BU/solution-samt-bu-docs v0.0.0-20260302230425-1219b056690d/go.mod h1:ZZcZQfI96Zg9ZKqsx3MikynzmoV1F7/Er569F8eHcIc=
-github.com/SAMT-BU/team-architecture v0.0.0-20260302160135-e7ed5c5be069 h1:MeXaTS+oWnyrJlRfGCg2etBPY88w2OIsFenH+Jxz1Bw=
-github.com/SAMT-BU/team-architecture v0.0.0-20260302160135-e7ed5c5be069/go.mod h1:oGjEparc9MJ4YemqqXVomLf005fiUA/GYilUgqhv2IQ=
-github.com/SAMT-BU/team-semantics v0.0.0-20260302211757-a1387aab43b6 h1:59SrfEOnXQMAlMsbupW12CGn+YklizyLeb+vHUtyAsw=
-github.com/SAMT-BU/team-semantics v0.0.0-20260302211757-a1387aab43b6/go.mod h1:NPZoa4mZSaOsFmaHUIMste+VM3+tDYtu7msEmtJLt94=
+github.com/SAMT-X/samt-bu-drafts v0.0.0-20260303201115-f08774ce1f8c h1:580IEj6lAg0Lu4GgoUa/Vjr3rTSZ+U2iWBVtUWGmcXk=
+github.com/SAMT-X/samt-bu-drafts v0.0.0-20260303201115-f08774ce1f8c/go.mod h1:DSWTYGYc0Gdp9/uUD33suYZHwaCzxtWsXX9loG2ohyE=
+github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260303201130-4e04a11263a6 h1:y3DehP92E+04Kxi6Hx9jdThbE5+FgR2cPIUuso2R2lY=
+github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260303201130-4e04a11263a6/go.mod h1:tfkaCWHf85mWvul6ze9NJlAvxHtE6dQmBOlzoogTUec=
+github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6 h1:/RWW6esYoEmmq55IyZmBTgMcAPGSa+nYHB1d6c3D1uY=
+github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6/go.mod h1:UMJNBAbXIv7kSfQXQYVxsyRW0rjkbIY4t0A8LSHPh/w=
+github.com/SAMT-X/team-semantics v0.0.0-20260303201125-e3c90581dbf4 h1:ef8egTSiXH+eGM+O5Nwy6wiVLXN4tKR6VpXHVfFFSD8=
+github.com/SAMT-X/team-semantics v0.0.0-20260303201125-e3c90581dbf4/go.mod h1:+zrKTxt3zFZwqeB1ItyBB7Yw2XcFhL32m4MDqVk5GLw=
