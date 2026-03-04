@@ -6,5 +6,7 @@ github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6 h1:/RWW6e
 github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6/go.mod h1:UMJNBAbXIv7kSfQXQYVxsyRW0rjkbIY4t0A8LSHPh/w=
 github.com/SAMT-X/team-architecture v0.0.0-20260304205017-6a3287f0f4e3 h1:HD6EDYBppD6bjcpRLtxFmn8SWnJA3roZ2ydd3tsajiY=
 github.com/SAMT-X/team-architecture v0.0.0-20260304205017-6a3287f0f4e3/go.mod h1:UMJNBAbXIv7kSfQXQYVxsyRW0rjkbIY4t0A8LSHPh/w=
+github.com/SAMT-X/team-architecture v0.0.0-20260304214412-dbc1238432e4 h1:hMKgfD0OxCAdn/NCnxCSiBB2pUKReHgvJZvypYOttfY=
+github.com/SAMT-X/team-architecture v0.0.0-20260304214412-dbc1238432e4/go.mod h1:UMJNBAbXIv7kSfQXQYVxsyRW0rjkbIY4t0A8LSHPh/w=
 github.com/SAMT-X/team-semantics v0.0.0-20260303201125-e3c90581dbf4 h1:ef8egTSiXH+eGM+O5Nwy6wiVLXN4tKR6VpXHVfFFSD8=
 github.com/SAMT-X/team-semantics v0.0.0-20260303201125-e3c90581dbf4/go.mod h1:+zrKTxt3zFZwqeB1ItyBB7Yw2XcFhL32m4MDqVk5GLw=
