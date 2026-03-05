@@ -4,6 +4,8 @@ github.com/SAMT-X/samt-bu-drafts v0.0.0-20260305124447-1b3b16686b14 h1:b5NpMA3C3
 github.com/SAMT-X/samt-bu-drafts v0.0.0-20260305124447-1b3b16686b14/go.mod h1:DSWTYGYc0Gdp9/uUD33suYZHwaCzxtWsXX9loG2ohyE=
 github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260303201130-4e04a11263a6 h1:y3DehP92E+04Kxi6Hx9jdThbE5+FgR2cPIUuso2R2lY=
 github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260303201130-4e04a11263a6/go.mod h1:tfkaCWHf85mWvul6ze9NJlAvxHtE6dQmBOlzoogTUec=
+github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260305140214-c10f22366e17 h1:r4j35A0FzOiBkDjZ04+A0Dw8uJX1EP152RAeDhox8HM=
+github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260305140214-c10f22366e17/go.mod h1:tfkaCWHf85mWvul6ze9NJlAvxHtE6dQmBOlzoogTUec=
 github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6 h1:/RWW6esYoEmmq55IyZmBTgMcAPGSa+nYHB1d6c3D1uY=
 github.com/SAMT-X/team-architecture v0.0.0-20260303201120-eb05ba91b0f6/go.mod h1:UMJNBAbXIv7kSfQXQYVxsyRW0rjkbIY4t0A8LSHPh/w=
 github.com/SAMT-X/team-architecture v0.0.0-20260304205017-6a3287f0f4e3 h1:HD6EDYBppD6bjcpRLtxFmn8SWnJA3roZ2ydd3tsajiY=
