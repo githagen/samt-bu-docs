@@ -112,6 +112,7 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
   - **Rutinglogikk (tre grener)** basert på `$dir = path.Dir .File.Path`:
     - `hasPrefix $dir "teams/"` → arkitektur-portal, collection `arkitektur`
     - `eq/hasPrefix $dir "utkast"` → utkast-portal, collection `utkast`
+    - `eq/hasPrefix $dir "loesninger/cms-loesninger/samt-bu-docs"` → loesninger-portal, collection `loesninger`
     - alt annet → docs-portal, collection `docs`
   - **Entry-slug:** Full relativ sti inkl. `/_index` (f.eks. `kommuneforlaget/_index`). Rot-sider i moduler bruker `_index` alene. Docs-rot forblir deaktivert (tom slug). URL: `<portal>#/collections/<collection>/entries/<slug>`
   - **Windows-fallgruve:** `.File.Path` bruker backslash – bruk alltid `path.Dir .File.Path` (normaliserer) fremfor rå `.File.Path` for hasPrefix-sjekker
@@ -128,6 +129,10 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 | `static/edit/arkitektur-en/` | `SAMT-X/team-architecture` | en | Team architecture | Team architecture |
 | `static/edit/utkast-nb/` | `SAMT-X/samt-bu-drafts` | nb | Innspill og utkast | Innspill og utkast |
 | `static/edit/utkast-en/` | `SAMT-X/samt-bu-drafts` | en | Inputs and drafts | Inputs and drafts |
+| `static/edit/loesninger-nb/` | `SAMT-X/solution-samt-bu-docs` | nb | Løsningsdokumentasjon | Løsningsdokumentasjon |
+| `static/edit/loesninger-en/` | `SAMT-X/solution-samt-bu-docs` | en | Solution documentation | Solution documentation |
+
+**Kritisk:** Hvert Hugo-modulrepo som monterer innhold **må ha sin egen CMS-portal** pekende på det repoet. Feilruting til `docs`-portalen → CMS viser tomme felter uten feilmelding (filene finnes ikke i `samt-bu-docs`-repoet).
 
 **NB-portaler har i tillegg:**
 - `locale: nb` i `config.yml`
@@ -142,8 +147,10 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 1. Opprett mappe `static/edit/<seksjon>-nb/` med:
    - `index.html` (← Portal-lenke → `../` + JS-lokale-blokk for NB)
    - `config.yml` (`locales: [nb]`, `locale: nb`, `repo: SAMT-X/<repo>`, `sortable_fields: ['weight', 'title']`)
-2. Legg til kort i `static/edit/index.html`
+2. Legg til kort i `static/edit/index.html` og `static/edit/en/index.html`
 3. Gjenta for `-en/` uten `locale: nb` og uten JS-lokale, lenke → `../en/`
+4. Legg til nytt grein i `edit-switcher.html` (i temaet) *før* `{{ else }}`-blokken
+5. Commit temaendring → push → oppdater submodule-peker i samt-bu-docs
 
 ## Innholdskonvensjoner
 
