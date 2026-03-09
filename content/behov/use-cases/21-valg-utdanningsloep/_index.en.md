@@ -107,6 +107,21 @@ In a desired situation, one unified public digital channel brings together all e
 
 Data from county municipalities' systems (VIGO) and HK-dir's systems are shared so that users seeking information about upper secondary education find everything in one place – without having to navigate between separate services.
 
+## Input on Solution Choices
+
+The project proposal from Novari and HK-dir points to the following solution directions:
+
+**One unified public service** – merging utdanning.no, karriereveiledning.no and vilbli.no into a single coherent channel with shared terminology, a shared editorial team and one technical solution under a unified governance model.
+
+**Data facilitation as a pilot within SAMT-BU** – initially focusing on enabling data sharing from county municipalities' systems (VIGO) and HK-dir's systems, so that users seeking information about upper secondary education find everything in one place.
+
+**Joint investigation project** – a project between Novari and HK-dir is proposed to investigate:
+* the effects of a potential merger
+* administrative and financial consequences
+* a plan for implementation
+
+Any governance model must ensure that county municipalities retain product ownership over relevant service areas (equivalent to their role with vilbli.no today).
+
 ## Insight Work
 
 The case builds on a project proposal developed by Novari and HK-dir in connection with SAMT-BU. The merger of career web services – utdanning.no, karriereveiledning.no and vilbli.no – has been proposed as a candidate for piloting within the project.

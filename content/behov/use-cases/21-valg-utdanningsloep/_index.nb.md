@@ -106,6 +106,21 @@ I en ønsket situasjon finnes én helhetlig, offentlig digital kanal som samler 
 
 Data fra fylkeskommunenes systemer (VIGO) og HK-dirs systemer deles slik at brukere som søker informasjon om videregående opplæring finner alt på ett nettsted – uten å måtte navigere mellom separate tjenester.
 
+## Innspill til løsningsvalg
+
+Prosjektforslaget fra Novari og HK-dir peker på følgende løsningsretninger:
+
+**Én felles offentlig tjeneste** – sammenslåing av utdanning.no, karriereveiledning.no og vilbli.no til én helhetlig kanal med felles begrepsbruk, felles redaksjonelt miljø og én teknisk løsning under én forvaltningsmodell.
+
+**Datatilrettelegging som pilot i SAMT-BU** – i første omgang fokus på tilrettelegging for deling av data fra fylkeskommunenes løsninger (VIGO) og HK-dirs løsninger, slik at brukere som søker informasjon om videregående opplæring finner dette på ett nettsted.
+
+**Felles utredningsprosjekt** – det foreslås et prosjekt mellom Novari og HK-dir for å utrede:
+* effekter av en mulig sammenslåing
+* administrative og økonomiske konsekvenser
+* plan for gjennomføring
+
+En forvaltningsmodell må sikre at fylkeskommunene beholder produkteierskap over relevante tjenesteområder (tilsvarende vilbli.no i dag).
+
 ## Innsiktsarbeid
 
 Caset bygger på prosjektforslag utarbeidet av Novari og HK-dir i tilknytning til SAMT-BU. Sammenslåing av karrierenettjenestene – utdanning.no, karriereveiledning.no og vilbli.no – er lansert som kandidat til pilot i prosjektet.
