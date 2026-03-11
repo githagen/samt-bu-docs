@@ -1,8 +1,7 @@
 ---
-id: f6fecf64-93a8-4b1f-8b4b-ea068f11e80b
-title: sistsist
-linkTitle: sistsist
-weight: 36
+title: "Aldri sist!"
+linkTitle: Aldri sist
+weight: 26
 status: New
 # Valid values: New | Early draft | In progress | For QA | Approved | Cancelled
 ---
