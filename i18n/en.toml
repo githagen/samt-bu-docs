@@ -4,14 +4,8 @@ other = "Last modified"
 [editSwitcherLabel]
 other = "Edit"
 
-[editSwitcherPage]
-other = "This page"
-
 [editSwitcherAddChild]
-other = "Sub-chapter"
-
-[editSwitcherOther]
-other = "Other options"
+other = "New sub-chapter"
 
 [navSwitcherLabel]
 other = "Content"

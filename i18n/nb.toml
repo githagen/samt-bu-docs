@@ -4,14 +4,8 @@ other = "Sist endret"
 [editSwitcherLabel]
 other = "Endre"
 
-[editSwitcherPage]
-other = "Denne siden"
-
 [editSwitcherAddChild]
-other = "Underkapittel"
-
-[editSwitcherOther]
-other = "Andre valg"
+other = "Nytt underkapittel"
 
 [navSwitcherLabel]
 other = "Innhold"
