@@ -25,7 +25,7 @@ collections:
       depth: 10
       summary: "{{title}}"
     path: "{{dir}}/_index"
-    create: true
+    create: false
     i18n: true
     media_folder: ""
     public_folder: ""
