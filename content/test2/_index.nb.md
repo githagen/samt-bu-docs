@@ -4,4 +4,6 @@ title: Test2
 weight: 901
 status: Ny
 # Gyldige verdier: Ny | Tidlig utkast | Pågår | Til QA | Godkjent | Avbrutt
+last_editor: erikhag1git
 ---
+
