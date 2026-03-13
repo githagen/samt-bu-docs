@@ -8,6 +8,6 @@ last_editor: erikhag1git
 
 ssdasasd
 
-## Kap 2 sdsddsd
+## Kap 2 En figur
 
 ![](bilde-1773391478152.png)
