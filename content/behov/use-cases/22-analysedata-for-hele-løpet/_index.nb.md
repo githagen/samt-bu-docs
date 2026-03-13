@@ -1,13 +1,13 @@
 ---
 id: e0d42db3-b997-4bcc-9bf5-4da622c18429
 title: 22. Analysedata fra barnehage til voksenopplæring
-linkTitle: 22. Analysedata for "hele løpet"
+linkTitle: "22. Analysedata for \"hele løpet\""
 weight: 23
 toc: true
 status: Tidlig utkast
 # Gyldige statusverdier: Ny | Tidlig utkast | Pågår | Til QA | Godkjent | Avbrutt
+last_editor: erikhag1git
 ---
-
 ## Kort beskrivelse
 
 Det er ønskelig med data fra hele utdanningssektoren som kan si noe om «hvordan det gikk» for ulike elever – fra barnehage til voksenopplæring. Data benyttes på aggregert nivå, men må basere seg på individuelle data.
@@ -26,70 +26,70 @@ Sosial bakgrunn, resultater og innsats henger sammen gjennom hele utdanningsløp
 
 Brudd oppstår særlig:
 
-* mellom barnehage og grunnskole – ulike systemer, ulike eiere, ingen felles dataflyt
-* mellom grunnskole og videregående – kommunalt og fylkeskommunalt ansvar deler seg her
-* mellom videregående og høyere utdanning – fylkeskommunalt og statlig ansvar
-* mellom utdanning og arbeidsliv – svært begrenset kobling
+- mellom barnehage og grunnskole – ulike systemer, ulike eiere, ingen felles dataflyt
+- mellom grunnskole og videregående – kommunalt og fylkeskommunalt ansvar deler seg her
+- mellom videregående og høyere utdanning – fylkeskommunalt og statlig ansvar
+- mellom utdanning og arbeidsliv – svært begrenset kobling
 
 ## Aktører
 
 ### Sluttbrukere (av analysedata)
 
-* Kommuner – for å vurdere effekt av tiltak og planlegge ressursbruk
-* Fylkeskommuner – for å følge elevflyt og utdanningsresultater over tid
-* Politisk ledelse på ulike nivåer – for beslutningsgrunnlag
-* Barn, unge og foresatte – indirekte, gjennom bedre tilpassede tjenester
+- Kommuner – for å vurdere effekt av tiltak og planlegge ressursbruk
+- Fylkeskommuner – for å følge elevflyt og utdanningsresultater over tid
+- Politisk ledelse på ulike nivåer – for beslutningsgrunnlag
+- Barn, unge og foresatte – indirekte, gjennom bedre tilpassede tjenester
 
 ### Ansatte i tjenestene
 
-* Analytikere og planleggere i kommuner og fylkeskommuner
-* Skoleledelse og rådgivere
+- Analytikere og planleggere i kommuner og fylkeskommuner
+- Skoleledelse og rådgivere
 
 ### Fagsystemleverandører
 
-* Leverandører av barnehage- og skoleadministrative systemer (VIGO, IST, Visma m.fl.)
-* Leverandører av analyseplattformer og datadelingstjenester
+- Leverandører av barnehage- og skoleadministrative systemer (VIGO, IST, Visma m.fl.)
+- Leverandører av analyseplattformer og datadelingstjenester
 
 ### Premissgivere
 
 #### Direktorater
 
-* **Utdanningsdirektoratet** – fagdirektorat for grunnopplæringen; forvalter sentrale utdanningsdata
-* **Statistisk sentralbyrå (SSB)** – forvalter befolknings- og utdanningsstatistikk på individnivå
-* **Digitaliseringsdirektoratet** – tverrsektoriell premissgiver for datadeling og samhandling
+- **Utdanningsdirektoratet** – fagdirektorat for grunnopplæringen; forvalter sentrale utdanningsdata
+- **Statistisk sentralbyrå (SSB)** – forvalter befolknings- og utdanningsstatistikk på individnivå
+- **Digitaliseringsdirektoratet** – tverrsektoriell premissgiver for datadeling og samhandling
 
 #### Departementer
 
-* **Kunnskapsdepartementet** – overordnet ansvar for utdanningssektoren
-* **Digitaliserings- og forvaltningsdepartementet** – overordnet ansvar for datadeling og tverrsektorielle initiativ
+- **Kunnskapsdepartementet** – overordnet ansvar for utdanningssektoren
+- **Digitaliserings- og forvaltningsdepartementet** – overordnet ansvar for datadeling og tverrsektorielle initiativ
 
 ### Tjenesteleverandører
 
-* **Kommuner** – eier og forvalter data fra barnehage og grunnskole
-* **Fylkeskommuner** – eier og forvalter data fra videregående opplæring
+- **Kommuner** – eier og forvalter data fra barnehage og grunnskole
+- **Fylkeskommuner** – eier og forvalter data fra videregående opplæring
 
 ### Samordnende og støttende aktører
 
-* **KS og KS Digital** – koordinerer kommunesektoren og leverer felles digitale løsninger
-* **Sikt** – leverer og forvalter fellestjenester i utdanningssektoren
+- **KS og KS Digital** – koordinerer kommunesektoren og leverer felles digitale løsninger
+- **Sikt** – leverer og forvalter fellestjenester i utdanningssektoren
 
 ## Konsekvenser av dagens situasjon
 
 ### For sluttbrukere (kommuner, fylkeskommuner og politisk ledelse)
 
-* Liten oversikt over sammenhengen mellom ulike faser i livet
-* Vanskelig å avdekke mønstre og vurdere effekten av tiltak på tvers av utdanningsnivåer
-* Beslutninger må tas på svakere datagrunnlag enn nødvendig
+- Liten oversikt over sammenhengen mellom ulike faser i livet
+- Vanskelig å avdekke mønstre og vurdere effekten av tiltak på tvers av utdanningsnivåer
+- Beslutninger må tas på svakere datagrunnlag enn nødvendig
 
 ### For ansatte i tjenestene
 
-* Analyser må bygges manuelt på tvers av systemer uten felles infrastruktur
-* Mye tid går med til datainnhenting og sammenstilling fremfor analyse
+- Analyser må bygges manuelt på tvers av systemer uten felles infrastruktur
+- Mye tid går med til datainnhenting og sammenstilling fremfor analyse
 
 ### For organisasjonene
 
-* Ineffektiv ressursbruk – samme arbeid gjøres parallelt i mange kommuner og fylkeskommuner
-* Vanskeligere å samarbeide om felles innsikt på tvers av kommuner og forvaltningsnivåer
+- Ineffektiv ressursbruk – samme arbeid gjøres parallelt i mange kommuner og fylkeskommuner
+- Vanskeligere å samarbeide om felles innsikt på tvers av kommuner og forvaltningsnivåer
 
 ### På systemnivå
 
@@ -109,9 +109,7 @@ Vestland FK har etablert en løsning der data fra blant annet VIGO analyseres og
 
 I en utvidet løsning kan tilsvarende data fra barnehage og grunnskole plasseres til venstre i dette bildet, og eventuell høyere utdanning/jobbstatus til høyre – slik at hele livsløpet er synlig i én sammenhengende analyse.
 
-![Eksempel på elevflyt i videregående utdanning i Vestland FK](elevflyt-vestland.png)
-
-### Felles kommunal dataplattform – KS Digital / Azure Databricks
+![Eksempel på elevflyt i videregående utdanning i Vestland FK](elevflyt-vestland.png)### Felles kommunal dataplattform – KS Digital / Azure Databricks
 
 KS Digital arbeider med en felles kommunal dataplattform basert på Azure Databricks. En slik plattform vil kunne gi kommuner og fylkeskommuner tilgang til en felles infrastruktur for lagring, prosessering og analyse av data på tvers av tjenester og sektorer – uten at den enkelte kommune må bygge og drifte dette selv.
 
@@ -125,9 +123,9 @@ Caset bygger på innspill fra Vestland FK, som har praktisk erfaring med analyse
 
 ## Berørte prosjektmål
 
-* Felles informasjonsmodeller og standardiserte grensesnitt som på sikt dekker «alle» områder og sektorer
-* Gjenbrukbare løsninger og fellesløsninger – analysekapasitet tilgjengelig for alle kommuner
-* Enklere brukerreiser for ansatte, foresatte, elever og studenter gjennom læringsløpet
-* Samarbeid og innovasjon på tvers av offentlige aktører i økosystemet
-* Langsiktige mål om livslang læring
-* Skalering og overføring av prosjektets læring og produkter til andre områder og sektorer
+- Felles informasjonsmodeller og standardiserte grensesnitt som på sikt dekker «alle» områder og sektorer
+- Gjenbrukbare løsninger og fellesløsninger – analysekapasitet tilgjengelig for alle kommuner
+- Enklere brukerreiser for ansatte, foresatte, elever og studenter gjennom læringsløpet
+- Samarbeid og innovasjon på tvers av offentlige aktører i økosystemet
+- Langsiktige mål om livslang læring
+- Skalering og overføring av prosjektets læring og produkter til andre områder og sektorer
