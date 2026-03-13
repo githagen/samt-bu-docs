@@ -5,4 +5,4 @@ weight: 10
 # Gyldige verdier: Ny | Tidlig utkast | Pågår | Til QA | Godkjent | Avbrutt
 last_editor: erikhag1git
 ---
-3.1
+3.1...
