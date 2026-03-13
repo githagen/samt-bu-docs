@@ -5,8 +5,6 @@ name: GitHub Pages – omdirigeringsside
 # til det nye (samt-bu-docs.pages.dev/) – med stipreservering.
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -34,27 +32,32 @@ jobs:
           <html lang="nb">
           <head>
             <meta charset="utf-8">
-            <title>SAMT-BU Docs – ny adresse</title>
+            <title>SAMT-BU Docs – siden er flyttet</title>
             <script>
-              (function () {
+              var _redirectTarget = (function () {
                 var prefix = '/samt-bu-docs';
                 var path = window.location.pathname;
-                if (path.startsWith(prefix)) {
-                  path = path.slice(prefix.length) || '/';
-                }
-                var target = 'https://samt-bu-docs.pages.dev' + path
+                if (path.startsWith(prefix)) { path = path.slice(prefix.length) || '/'; }
+                return 'https://samt-bu-docs.pages.dev' + path
                   + window.location.search + window.location.hash;
-                window.location.replace(target);
               })();
             </script>
-            <meta http-equiv="refresh" content="0; url=https://samt-bu-docs.pages.dev/">
+            <style>
+              body { font-family: sans-serif; max-width: 520px; margin: 80px auto; padding: 0 1rem; color: #222; }
+              a { color: #005b99; }
+            </style>
           </head>
           <body>
+            <h2>Siden er flyttet</h2>
             <p>
-              SAMT-BU Docs har byttet adresse.<br>
-              Klikk <a href="https://samt-bu-docs.pages.dev/">her</a>
-              om du ikke videresendes automatisk.
+              SAMT-BU Docs har fått ny adresse:<br>
+              <strong><a id="link" href="https://samt-bu-docs.pages.dev/">https://samt-bu-docs.pages.dev/</a></strong>
             </p>
+            <p>Du videresendes automatisk om 4 sekunder.</p>
+            <script>
+              document.getElementById('link').href = _redirectTarget;
+              setTimeout(function () { window.location.replace(_redirectTarget); }, 4000);
+            </script>
           </body>
           </html>"""
           with open('./redirect-site/index.html', 'w', encoding='utf-8') as f:
