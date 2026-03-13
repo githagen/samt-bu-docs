@@ -145,7 +145,7 @@ Utfordringene handler i liten grad om manglende vilje eller innsats, men om stru
 
 ## Hvordan kan en ønskesituasjon (drømmereise) se ut?
 
-I en ønsket situasjon har unge, eventuelt deres foresatte, enkel tilgang til oversiktlig og forståelig informasjon om egne resultater og kompetanse, og det er enkelt for dem å dele informasjonen når de er nødvendig. 
+I en ønsket situasjon har unge, eventuelt deres foresatte, enkel tilgang til oversiktlig og forståelig informasjon om egne resultater og kompetanse, og det er enkelt for dem å dele informasjonen når de er nødvendig.
 
 Relevante aktører har tilgang til den informasjonen de trenger for å gi god veiledning og oppfølging, uten unødvendig manuelt arbeid.
 
