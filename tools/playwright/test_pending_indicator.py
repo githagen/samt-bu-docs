@@ -45,8 +45,8 @@ GH_TOKEN    = os.environ.get("GITHUB_TOKEN", "")
 GH_USER     = os.environ.get("GITHUB_USER", "")
 TEST_PAGE   = os.environ.get("TEST_PAGE", "/test-samt-bu-docs/test-1/")
 HEADLESS    = os.environ.get("HEADLESS", "false").lower() == "true"
-SLOW_MO     = int(os.environ.get("SLOW_MO", "200"))   # ms per event (lavt – pauser styres av STEP_PAUSE)
-STEP_PAUSE  = 2000                                     # ms pause før hvert hovednøkkelklikk
+SLOW_MO     = int(os.environ.get("SLOW_MO", "0"))      # 0 = ingen slow_mo; pauser styres av STEP_PAUSE
+STEP_PAUSE  = 2000                                     # ms total pause (inkl. bevegelse) mellom klikk
 
 SCREENSHOTS = Path(__file__).parent / "screenshots" / datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -102,10 +102,21 @@ async def inject_indicator_pulse(page: Page):
     """Gjør #qe-job-indicator pulsere gult – synlig i video."""
     await page.evaluate(INDICATOR_PULSE_JS)
 
-async def show_bubble(page: Page, text: str, duration_ms: int = 7000):
-    """Vis en forklarende kommentarboble midt på skjermen, forsvinner etter duration_ms."""
-    await page.evaluate("""
-        ([text, duration]) => {
+async def show_bubble(page: Page, text: str, duration_ms: int = None):
+    """
+    Vis en forklarende kommentarboble midt på skjermen.
+    duration_ms=None → boblen blir stående til siden lastes på nytt.
+    """
+    timeout_js = ""
+    if duration_ms is not None:
+        timeout_js = f"""
+            setTimeout(() => {{
+                b.style.opacity = '0';
+                setTimeout(() => b.remove(), 450);
+            }}, {duration_ms});
+        """
+    await page.evaluate(f"""
+        (text) => {{
             const existing = document.getElementById('pw-bubble');
             if (existing) existing.remove();
             const b = document.createElement('div');
@@ -125,13 +136,42 @@ async def show_bubble(page: Page, text: str, duration_ms: int = 7000):
                 'transition:opacity 0.4s ease'
             ].join(';');
             document.body.appendChild(b);
-            requestAnimationFrame(() => { b.style.opacity = '1'; });
-            setTimeout(() => {
-                b.style.opacity = '0';
-                setTimeout(() => b.remove(), 450);
-            }, duration);
-        }
-    """, [text, duration_ms])
+            requestAnimationFrame(() => {{ b.style.opacity = '1'; }});
+            {timeout_js}
+        }}
+    """, text)
+
+async def show_final_overlay(page: Page, text: str, duration_ms: int = 5000):
+    """Full-skjerm overlay med sentert tekst – brukes som avslutningsskjerm i video."""
+    fade_out_at = duration_ms - 900
+    await page.evaluate(f"""
+        (text) => {{
+            const overlay = document.createElement('div');
+            overlay.id = 'pw-final-overlay';
+            overlay.style.cssText = [
+                'position:fixed', 'inset:0',
+                'background:rgba(10,18,40,0.88)',
+                'display:flex', 'align-items:center', 'justify-content:center',
+                'z-index:2147483647',
+                'opacity:0', 'transition:opacity 0.8s ease'
+            ].join(';');
+            const inner = document.createElement('div');
+            inner.innerHTML = text;
+            inner.style.cssText = [
+                'color:#fff', 'font-size:26px', 'font-weight:600',
+                'text-align:center', 'padding:48px',
+                'max-width:720px', 'line-height:1.6'
+            ].join(';');
+            overlay.appendChild(inner);
+            document.body.appendChild(overlay);
+            requestAnimationFrame(() => {{ overlay.style.opacity = '1'; }});
+            setTimeout(() => {{
+                overlay.style.opacity = '0';
+                setTimeout(() => overlay.remove(), 900);
+            }}, {fade_out_at});
+        }}
+    """, text)
+
 
 async def click_flash(page: Page, x: float, y: float):
     """Tegn en gul ripple-animasjon ved klikk-koordinater."""
@@ -159,18 +199,20 @@ async def click_flash(page: Page, x: float, y: float):
 async def move_and_click(page: Page, locator, pause: bool = True, click_count: int = 1):
     """
     Animert cursor-bevegelse til element, ripple-flash, så klikk.
-    pause=True venter STEP_PAUSE ms før bevegelsen starter.
+    pause=True venter STEP_PAUSE ms totalt (bevegelse + klikk innenfor dette).
+    steps=1 → musepekeren hopper til målet øyeblikkelig; CSS-transition på
+    #pw-cursor (0.04s) gir visuell glatting i videoen.
     """
     if pause:
-        await page.wait_for_timeout(STEP_PAUSE)
+        await page.wait_for_timeout(STEP_PAUSE - 400)   # reserver ~400ms til bevegelse+flash
     box = await locator.bounding_box()
     if box:
         x = box['x'] + box['width']  / 2
         y = box['y'] + box['height'] / 2
-        await page.mouse.move(x, y, steps=30)
-        await page.wait_for_timeout(250)
+        await page.mouse.move(x, y, steps=1)
+        await page.wait_for_timeout(200)
         await click_flash(page, x, y)
-        await page.wait_for_timeout(100)
+        await page.wait_for_timeout(120)
         for _ in range(click_count):
             await page.mouse.click(x, y)
     else:
@@ -319,10 +361,15 @@ async def step_05_make_change(page: Page):
     base_title = re.sub(r'\s*\(testet \d{2}:\d{2}:\d{2}\)$', '', current_title).strip()
     ts = datetime.now().strftime("%H:%M:%S")
     new_title = f"{base_title} (testet {ts})"
-    # Marker hele feltet og slett eksisterende tekst
-    await move_and_click(page, title_input, click_count=3)
+    # Klikk for å fokusere feltet
+    await move_and_click(page, title_input)
+    await page.wait_for_timeout(200)
+    # Marker all eksisterende tekst (Ctrl+A) – synlig i video
+    await page.keyboard.press("Control+a")
+    await page.wait_for_timeout(600)      # pause – viser markeringen
+    # Slett markert tekst
     await page.keyboard.press("Backspace")
-    await page.wait_for_timeout(300)
+    await page.wait_for_timeout(400)      # pause – viser tomt felt
     # Skriv ny tittel tegn for tegn – simulerer manuell inntasting
     await page.keyboard.type(new_title, delay=70)
     await screenshot(page, "05-tittel-endret", "#qe-meta-panel")
@@ -385,7 +432,7 @@ async def step_07_navigate_away(page: Page):
         print("  ⚠ Indikator IKKE gjenopprettet etter navigering – feil!")
         await screenshot(page, "07-indikator-mangler-etter-navigering")
 
-    # Forklarende boble – vises mens vi «jobber videre» på en annen side
+    # Forklarende boble – blir stående til siden lastes automatisk på nytt (bygg ferdig)
     await show_bubble(page,
         "Vi kan nå jobbe videre på andre sider mens nettstedet oppdateres i bakgrunnen."
         "<br><br>"
@@ -394,9 +441,8 @@ async def step_07_navigate_away(page: Page):
         "<br><br>"
         "I denne testen venter vi til jobben er ferdig for å demonstrere "
         "hvordan tittelen på «Test 1» oppdateres i venstremenyen.",
-        duration_ms=9000
+        duration_ms=None    # ingen timeout – forsvinner ved automatisk sideoppdatering
     )
-    await page.wait_for_timeout(9500)   # Vent til boblen er ferdig
 
 
 async def step_08_wait_for_build_and_countdown(page: Page):
@@ -444,6 +490,17 @@ async def step_09_final_state(page: Page):
         print(f"  ⚠ Indikator fortsatt synlig: «{await get_indicator_text(page)}»")
 
     await screenshot(page, "09-slutt-tilstand")
+
+    # Avslutningsoverlay – fader inn og ut i ~5 sekunder (synlig på slutten av videoen)
+    await show_final_overlay(page,
+        "Demoen er ferdig."
+        "<br><br>"
+        "<span style='font-size:16px;font-weight:400;opacity:0.75'>"
+        "SAMT-BU Docs – pending build-indikator"
+        "</span>",
+        duration_ms=5000
+    )
+    await page.wait_for_timeout(5500)
 
     print(f"\n{'='*50}")
     print(f"Screenshots lagret i: {SCREENSHOTS}")
