@@ -46,7 +46,7 @@ GH_USER     = os.environ.get("GITHUB_USER", "")
 TEST_PAGE   = os.environ.get("TEST_PAGE", "/test-samt-bu-docs/test-1/")
 HEADLESS    = os.environ.get("HEADLESS", "false").lower() == "true"
 SLOW_MO     = int(os.environ.get("SLOW_MO", "0"))      # 0 = ingen slow_mo; pauser styres av STEP_PAUSE
-STEP_PAUSE  = 2000                                     # ms total pause (inkl. bevegelse) mellom klikk
+STEP_PAUSE  = 300                                      # ms pause før cursor flyttes (0,3 sek)
 
 SCREENSHOTS = Path(__file__).parent / "screenshots" / datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -204,7 +204,7 @@ async def move_and_click(page: Page, locator, pause: bool = True, click_count: i
     #pw-cursor (0.04s) gir visuell glatting i videoen.
     """
     if pause:
-        await page.wait_for_timeout(STEP_PAUSE - 400)   # reserver ~400ms til bevegelse+flash
+        await page.wait_for_timeout(STEP_PAUSE)
     box = await locator.bounding_box()
     if box:
         x = box['x'] + box['width']  / 2
@@ -363,15 +363,11 @@ async def step_05_make_change(page: Page):
     new_title = f"{base_title} (testet {ts})"
     # Klikk for å fokusere feltet
     await move_and_click(page, title_input)
-    await page.wait_for_timeout(200)
-    # Marker all eksisterende tekst (Ctrl+A) – synlig i video
+    await page.wait_for_timeout(150)
+    # Marker all eksisterende tekst – vises som blå selektion i video
     await page.keyboard.press("Control+a")
-    await page.wait_for_timeout(600)      # pause – viser markeringen
-    # Slett markert tekst (visuell animasjon + faktisk tømming)
-    await page.keyboard.press("Backspace")
-    await title_input.fill("")            # sikrer at feltet er faktisk tomt
-    await page.wait_for_timeout(400)      # pause – viser tomt felt
-    # Skriv ny tittel tegn for tegn – simulerer manuell inntasting
+    await page.wait_for_timeout(600)
+    # Skriv ny tittel tegn for tegn – erstatter seleksjonen direkte
     await page.keyboard.type(new_title, delay=70)
     await screenshot(page, "05-tittel-endret", "#qe-meta-panel")
     print(f"  ✓ Tittel endret: «{current_title}» → «{new_title}»")
@@ -413,10 +409,15 @@ async def step_06_save_and_observe_indicator(page: Page):
 
 async def step_07_navigate_away(page: Page):
     print("\n[7/9] Navigerer til annen side og sjekker at indikator gjenopprettes…")
-    await page.wait_for_timeout(STEP_PAUSE)
-    await page.goto(BASE_URL + "/test-samt-bu-docs/test-2/", wait_until="networkidle")
+    # Finn «Test 2»-lenken i venstremenyen og klikk den (animert)
+    test2_link = page.locator("#sidebar a").filter(
+        has_text=re.compile(r"Test\s+2\b", re.IGNORECASE)
+    ).first
+    await test2_link.wait_for(state="visible", timeout=8000)
+    await move_and_click(page, test2_link)
+    await page.wait_for_url("**/test-samt-bu-docs/test-2/**", timeout=10000)
     await inject_cursor_overlay(page)
-    await page.wait_for_timeout(800)
+    await page.wait_for_timeout(600)
 
     current_url = page.url
     print(f"  → Navigerte til: {current_url}")
