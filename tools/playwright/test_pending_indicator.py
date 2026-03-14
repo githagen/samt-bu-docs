@@ -164,19 +164,20 @@ async def step_02_inject_and_reload(page: Page):
 
 async def step_03_open_edit_menu(page: Page):
     print("\n[3/9] Åpner Endre-menyen…")
-    # Finn og klikk Endre/Edit-knappen
-    edit_btn = page.locator("#edit-dropdown-btn, [data-edit-toggle], #endre-btn").first
+    edit_btn = page.locator("#edit-toggle")
     await edit_btn.wait_for(state="visible", timeout=5000)
     await edit_btn.click()
     await page.wait_for_timeout(400)
-    await screenshot(page, "03-endre-meny-apen", "#edit-dropdown, #endre-dropdown")
+    await screenshot(page, "03-endre-meny-apen", "#edit-menu")
     print("  ✓ Endre-meny åpnet")
 
 
 async def step_04_open_edit_dialog(page: Page):
     print("\n[4/9] Åpner redigeringsdialog…")
-    # Klikk «Rediger dette kapitlet»
-    rediger = page.get_by_text("Rediger dette kapitlet").first
+    # Klikk «Rediger dette kapitlet» – teksten varierer med språk
+    rediger = page.locator("#edit-menu a").filter(
+        has_text=re.compile(r"Rediger dette kapitlet|Edit this chapter", re.IGNORECASE)
+    ).first
     await rediger.wait_for(state="visible", timeout=5000)
     await rediger.click()
     # Vent til dialog er synlig
@@ -236,7 +237,7 @@ async def step_06_save_and_observe_indicator(page: Page):
     # Lukk dialog for å se indikatoren tydelig
     cancel_btn = page.locator("#qe-cancel-btn")
     await cancel_btn.click()
-    await page.wait_for_selector("#qe-overlay", state="hidden", timeout=3000)
+    await page.wait_for_selector("#qe-overlay", state="hidden", timeout=5000)
 
     # Vent til indikatoren vises
     visible = await wait_for_indicator(page)
