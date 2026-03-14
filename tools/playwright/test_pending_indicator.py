@@ -51,7 +51,7 @@ def find_ffmpeg() -> str | None:
 def convert_to_mp4(webm: Path, mp4: Path, ffmpeg: str):
     subprocess.run([
         ffmpeg, "-y", "-i", str(webm),
-        "-vf", f"pad={VIDEO_W}:{VIDEO_H+80}:0:0:black",  # 80px svart sikkerhetssone i bunnen
+        "-vf", f"pad={VIDEO_W}:{VIDEO_H+200}:0:0:black",  # 200px svart sikkerhetssone – WMP/Films&TV-kontroller er 80–150px
         "-vcodec", "libx264", "-crf", "18",
         "-preset", "slow", "-pix_fmt", "yuv420p",
         str(mp4)
