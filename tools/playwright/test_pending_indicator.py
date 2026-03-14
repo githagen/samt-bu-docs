@@ -599,6 +599,12 @@ async def main():
     elif not ffmpeg:
         print("\n⚠ FFmpeg ikke funnet – WebM beholdes ukonvertert")
 
+    # Kopier viewer.html inn i screenshot-mappen
+    viewer_src = Path(__file__).parent / "viewer.html"
+    if viewer_src.exists():
+        shutil.copy(viewer_src, SCREENSHOTS / "viewer.html")
+        print(f"  📄 viewer.html kopiert – åpne {SCREENSHOTS / 'viewer.html'} i nettleser")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
