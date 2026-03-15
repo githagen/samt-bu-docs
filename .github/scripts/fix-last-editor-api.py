@@ -107,6 +107,9 @@ def get_last_real_editor(github_repo, file_path):
             profile_name = get_display_name(login)
             commit_name = commit.get('commit', {}).get('author', {}).get('name', '').strip()
             name = profile_name or commit_name
+            # Oppdater cache hvis vi nå har et navn (brukes av fremtidige filer)
+            if name and not _user_name_cache.get(login):
+                _user_name_cache[login] = name
             return login, name
         if len(commits) < 20:
             break  # ingen flere sider

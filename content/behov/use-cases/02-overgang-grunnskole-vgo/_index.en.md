@@ -5,7 +5,7 @@ linkTitle: 2. Primary to Upper Secondary
 weight: 20
 toc: true
 status: New
-last_editor: erikhag1git (ukjent navn)
+last_editor: erikhag1git (Erik Hagen)
 
 ---
 

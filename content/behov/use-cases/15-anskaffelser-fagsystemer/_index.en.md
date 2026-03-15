@@ -12,7 +12,7 @@ toc: true
 # ⏺ Approved
 # ⨂ Cancelled
 status: "New"
-last_editor: erikhag1git (ukjent navn)
+last_editor: erikhag1git (Erik Hagen)
 
 ---
 

@@ -5,7 +5,7 @@ linkTitle: "7. Early Identification"
 weight: 70
 toc: true
 status: "New"
-last_editor: erikhag1git (ukjent navn)
+last_editor: erikhag1git (Erik Hagen)
 
 ---
 
