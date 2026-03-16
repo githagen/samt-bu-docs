@@ -4,4 +4,4 @@ title: Test 4
 weight: 40
 last_editor: erikhag1git (ukjent navn)
 ---
-Hva er test 4?
+Test 4, sa du?
