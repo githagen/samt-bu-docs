@@ -35,6 +35,8 @@ You edit content directly in the browser using a visual text editor – no knowl
 5. Make your changes in the text field
 6. Click **"Save"**
 
+**Tip:** Images can be pasted directly into the text field (Ctrl+V or right-click → Paste) – there is currently no dedicated image button in the toolbar.
+
 The website updates automatically within approximately 1 minute. A status indicator at the bottom left of the screen shows that the update is in progress.
 
 ### Creating a New Page

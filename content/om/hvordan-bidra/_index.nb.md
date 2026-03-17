@@ -35,6 +35,8 @@ Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen 
 5. Gjør endringene dine i tekstfeltet
 6. Klikk **«Lagre»**
 
+**Tips:** Bilder kan limes direkte inn i tekstfeltet (Ctrl+V eller høyreklikk → Lim inn) – det finnes foreløpig ingen egen bildeknapp i verktøylinjen.
+
 Nettstedet oppdateres automatisk innen ca. 1 minutt. En statusindikator nede til venstre i skjermen viser at oppdateringen er i gang.
 
 ### Opprette en ny side
