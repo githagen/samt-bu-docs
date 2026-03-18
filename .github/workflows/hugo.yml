@@ -83,6 +83,13 @@ jobs:
           path: .hugo-modules/solution-samt-bu-docs
           fetch-depth: 0
 
+      - name: Checkout team-pilot-1 module
+        uses: actions/checkout@v4
+        with:
+          repository: SAMT-X/team-pilot-1
+          path: .hugo-modules/team-pilot-1
+          fetch-depth: 0
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -105,7 +112,9 @@ jobs:
             github.com/SAMT-X/samt-bu-drafts ->
             ${{ github.workspace }}/.hugo-modules/samt-bu-drafts,
             github.com/SAMT-X/solution-samt-bu-docs ->
-            ${{ github.workspace }}/.hugo-modules/solution-samt-bu-docs
+            ${{ github.workspace }}/.hugo-modules/solution-samt-bu-docs,
+            github.com/SAMT-X/team-pilot-1 ->
+            ${{ github.workspace }}/.hugo-modules/team-pilot-1
         run: |
           hugo \
             --gc \

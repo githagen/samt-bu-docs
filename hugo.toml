@@ -108,6 +108,12 @@ enableGitInfo = true
       target = "content/teams/team-semantics"
 
   [[module.imports]]
+    path = "github.com/SAMT-X/team-pilot-1"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/teams/team-pilot-1"
+
+  [[module.imports]]
     path = "github.com/SAMT-X/solution-samt-bu-docs"
     [[module.imports.mounts]]
       source = "content"
