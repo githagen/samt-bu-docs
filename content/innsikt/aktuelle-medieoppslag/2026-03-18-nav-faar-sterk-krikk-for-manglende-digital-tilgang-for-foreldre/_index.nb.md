@@ -11,7 +11,7 @@ last_editor: erikhag1git
 
 **Sivilombudet retter i en ny uttalelse kraftig kritikk mot Nav for manglende digitale løsninger for foreldre, verger og fullmektiger. Problemet ligger i at disse gruppene i dag ikke har digital tilgang til Navs tjenester på vegne av barna eller personene de representerer.**
 
-**Hovedpunkter i saken:**
+### **Hovedpunkter i saken:**
 
 - **Manglende funksjonalitet:** Mens tjenester som Helsenorge og Skatteetaten har hatt løsninger for digital representasjon i lang tid, henger Nav etter.
 - **Økt belastning:** Sivilombud Hanne Harlem påpeker at fraværet av digitale løsninger fører til en betydelig merbelastning for foreldre og verger, som ofte må ty til postgang og manuelle prosesser.
