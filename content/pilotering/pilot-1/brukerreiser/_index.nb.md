@@ -6,7 +6,7 @@ weight: 50
 last_editor: Anamarija-Carotta
 
 ---
-## **Nåværende situasjon (AS-IS prosess): Overføring av elevliste fra grunnskole til vidergående skole**
+## Nåværende situasjon (AS-IS prosess): Overføring av elevliste fra grunnskole til vidergående skole
 
 Prosessen handler om overføring av elevdata fra grunnskole til videregående skole i forbindelse med overgangen mellom skolene. Formålet med prosessen er å klargjøre elever i fylkeskommunene slik at de kan søke videregående opplæring i starten av januar. Prosessen som er skissert under, beskriver dette i detalj.
 
