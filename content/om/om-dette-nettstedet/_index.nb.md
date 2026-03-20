@@ -19,8 +19,8 @@ Innholdet er under utvikling. Her er noe av det som er på gang.
 
 ## Teknisk plattform
 
-Nettstedet er bygget med [Hugo](https://gohugo.io/) (statisk nettstedsgenerator) og publiseres via GitHub Pages. Innholdet skrives i Markdown og versjonshåndteres i Git. Tospråklig støtte (norsk og engelsk) er innebygd.
+Nettstedet er bygget med [Hugo](https://gohugo.io/) (statisk nettstedsgenerator) og publiseres via Cloudflare Pages. Innholdet skrives i Markdown og versjonshåndteres i Git. Tospråklig støtte (norsk og engelsk) er innebygd.
 
-Innhold fra team-repoer monteres automatisk inn via Hugo Modules, og CMS-redigering er mulig direkte i nettleseren vis en egen løsning for dette – uten brukerne skal behøve å ha teknisk kunnskap om Git eller Markdown.\
+Innhold fra team-repoer monteres automatisk inn via Hugo Modules, og CMS-redigering er mulig direkte i nettleseren via en egen løsning for dette – uten at brukerne trenger teknisk kunnskap om Git eller Markdown.\
 \
 Brukerveiledning kommer.
