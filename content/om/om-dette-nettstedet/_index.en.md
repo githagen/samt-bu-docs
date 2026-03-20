@@ -22,6 +22,9 @@ Content is under development. Here is some of what is being built.
 
 The site is built with [Hugo](https://gohugo.io/) (a static site generator) and published via Cloudflare Pages. Content is written in Markdown and version-controlled in Git. Bilingual support (Norwegian and English) is built in.
 
-Content from team repositories is automatically mounted into the site via Hugo Modules, and CMS editing is available directly in the browser via a built-in solution – without any technical knowledge of Git or Markdown.\
-\
-User guide coming soon.
+Content from team repositories is automatically mounted into the site via Hugo Modules, and CMS editing is available directly in the browser via a built-in solution – without any technical knowledge of Git or Markdown.
+
+## See also
+
+- [How to Contribute](/samt-bu-docs/om/hvordan-bidra/) – get started with editing and contributions
+- [SAMT-BU Docs – solution documentation](/samt-bu-docs/loesninger/cms-loesninger/samt-bu-docs/) – technical documentation and user guide for editors

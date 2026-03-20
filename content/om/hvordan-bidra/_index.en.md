@@ -227,3 +227,11 @@ GitHub Actions builds and publishes automatically after 1–2 minutes.
 | `hugo` | Build to the `public/` folder (check for errors) |
 | `git pull` | Fetch the latest changes from GitHub |
 | `hugo mod get -u` | Update all content modules to the latest version |
+
+---
+
+## More detailed user guide
+
+A more comprehensive user guide – including tips for editors, advanced editing, and site administration – is available in the solution documentation:
+
+→ [User guide for SAMT-BU Docs](/samt-bu-docs/loesninger/cms-loesninger/samt-bu-docs/brukerveiledning/)
