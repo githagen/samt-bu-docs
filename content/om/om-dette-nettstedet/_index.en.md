@@ -11,13 +11,17 @@ SAMT-BU Docs is a static documentation website developed as part of the project 
 
 ## What you will find here
 
-- **Needs and use cases** – 20 numbered use cases describing the key needs that digitalisation is intended to address
+Content is under development. Here is some of what is being built.
+
+- **Needs and use cases** – a set of numbered use cases describing the key needs that digitalisation is intended to address
 - **Architecture and target picture** – capability maps, services, user journeys, and processes
 - **Solutions** – technical documentation and guides for those who build and maintain the platform
 - **Framework** – methodology, law, governance, standards, and terminology
 
 ## Technical platform
 
-The site is built with [Hugo](https://gohugo.io/) (a static site generator) and published via GitHub Pages at `samt-x.github.io/samt-bu-docs`. Content is written in Markdown and version-controlled in Git. Bilingual support (Norwegian and English) is built in.
+The site is built with [Hugo](https://gohugo.io/) (a static site generator) and published via Cloudflare Pages. Content is written in Markdown and version-controlled in Git. Bilingual support (Norwegian and English) is built in.
 
-Content from team repositories is automatically mounted into the site via Hugo Modules, and CMS editing is available directly in the browser via Decap CMS – without any technical knowledge of Git or Markdown.
+Content from team repositories is automatically mounted into the site via Hugo Modules, and CMS editing is available directly in the browser via a built-in solution – without any technical knowledge of Git or Markdown.\
+\
+User guide coming soon.

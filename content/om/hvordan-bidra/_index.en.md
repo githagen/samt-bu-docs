@@ -37,7 +37,32 @@ You edit content directly in the browser using a visual text editor – no knowl
 
 **Tip:** Images can be pasted directly into the text field (Ctrl+V or right-click → Paste) – there is currently no dedicated image button in the toolbar.
 
-The website updates automatically within approximately 1 minute. A status indicator at the bottom left of the screen shows that the update is in progress.
+The website updates automatically after saving. A status indicator at the bottom left of the screen keeps you informed throughout.
+
+### Status indicator and build history
+
+**The indicator at the bottom left** is always visible and shows the current state:
+
+| State | Text | Meaning |
+|-------|------|---------|
+| No active job | «Build history» | Click to see previous build jobs |
+| Saved, waiting for build | «N changes being built…» | Change sent – build is running or queued |
+| Done | «Changes published – click to reload» | Click to view the updated page |
+
+Clicking the indicator opens a **build history dialog** showing recent build jobs with status, timestamp, and a link to GitHub Actions. Here you can see:
+- 🔄 Running job – with the number of seconds since it started
+- 🕐 Job in queue – waiting its turn
+- ✅ Completed
+- ✅ (grey) Superseded by a newer build – see explanation below
+
+#### About build times and queues
+
+The site is built by GitHub Actions. A build normally takes **about 1 minute**. If you or others save several pages in quick succession, the wait time may be longer because build jobs run one at a time:
+
+- **2 saves in a row:** the second job waits until the first is done – total time approx. 2 min
+- **3 or more rapid saves:** GitHub may *supersede* older queued jobs with the newest one. This means a job in the history may appear as «Superseded» rather than completed – this is normal and does not mean anything went wrong. All saved changes are recorded in Git and will be published by the last job that runs.
+
+> **In short:** If you see a grey tick and the text «Superseded» in the build history, your change has not been lost – it was published by a newer job.
 
 ### Creating a New Page
 
