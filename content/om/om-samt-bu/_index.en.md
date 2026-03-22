@@ -7,9 +7,9 @@ last_editor: erikhag1git (Erik Hagen)
 
 ---
 
-SAMT-BU is a collaborative project on data-driven service development and joined-up services for children and young people – from kindergarten to higher education.
+SAMT-BU is a collaborative project on data-centric service development and seamless services for children and young people – from kindergarten to higher education.
 
-The project's full title is *Felles loft: Joined-up services for children and young people*, running from October 2025 to December 2027.
+The project's full title is *Felles loft: Seamless Services for Children and Young People*, running from October 2025 to December 2027.
 
 ![Illustration: SAMT-BU – from kindergarten to higher education](samt-bu-fra-barnehage-til-hoyere-utdanning.png)
 
@@ -23,7 +23,7 @@ The project is a direct response to the Digitalisation Strategy 2024–2030, whi
 
 ## Purpose and ambition
 
-The purpose is to establish a **common foundation for collaboration and knowledge about data-driven service development and seamless user journeys** across administrative levels and sectors, with piloting anchored in the area of children and young people.
+The purpose is to establish a **common foundation for collaboration and knowledge about data-centric service development and seamless user journeys** across administrative levels and sectors, with piloting anchored in the area of children and young people.
 
 The ambition is broad, systematic application and further development of the project's products across all services for which the public sector is responsible – not only within education and childcare, but eventually other sectors as well.
 
@@ -41,7 +41,7 @@ The project builds on established experience, particularly Novari's **FINT** (Fe
 
 The project will deliver seven main products, developed iteratively throughout the project period:
 
-1. **Framework for data-driven service development** – common concepts, shared language, standards and a governance model with roles and responsibilities.
+1. **Framework for data-centric service development** – common concepts, shared language, standards and a governance model with roles and responsibilities.
 2. **Common catalogue solutions** – continuation and extension of national catalogues on data.norge.no (concept, data, service and information model catalogues).
 3. **Common information models** – describing key concepts and relationships within childcare and education, across municipal and state systems, from kindergarten to higher education.
 4. **Improved common solutions** – improvements to existing common solutions and services, based on needs identified through MVPs and pilots.
