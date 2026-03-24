@@ -8,8 +8,7 @@ Skissen under beskriver hvordan overføring av elevlister mellom grunnskole og v
 
 ![](bilde-1774256445362.png)## Gevinster
 
-Gevinstene er strukturert i kategorier:
+Gevinstene er strukturert i to kategorier:
 
 1. Operative gevinster – knyttet til forbedring av prosessen for overføring av elevdata
 2. Strategiske gevinster – knyttet til etablering og bruk av dataplattform som mellomlag
-3.
