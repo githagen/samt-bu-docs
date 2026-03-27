@@ -11,11 +11,16 @@ Logikk per par:
   - Ingen av dem har UUID       → generer ny UUID, sett begge
   - Forskjellige UUID-er        → bruk nb som fasit, skriv til en (advarsel)
 
+Duplikatsjekk (kjøres etter hovedløkken):
+  - Samme UUID i to forskjellige mapper → regenerer for kopien
+    (kopien identifiseres som mappen med færrest git-commits på nb-filen)
+
 Kjøres av GitHub Actions ved push til main.
 """
 
 import os
 import re
+import subprocess
 import sys
 import uuid
 
@@ -66,6 +71,15 @@ def set_uuid(path, uid, content):
         new_content = f"---\nid: {uid}\n{fm}\n---\n{body}"
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(new_content)
+
+
+def get_commit_count(path):
+    """Teller antall git-commits for en fil. Returnerer 0 ved feil."""
+    result = subprocess.run(
+        ['git', 'log', '--oneline', '--', path],
+        capture_output=True, text=True
+    )
+    return len(result.stdout.strip().splitlines())
 
 
 def main():
@@ -135,6 +149,48 @@ def main():
 
     for w in warnings:
         print(w)
+
+    # --- Duplikatsjekk ---
+    # Samle alle UUID-er på tvers av mapper for å oppdage kopierte mapper.
+    uuid_to_roots = {}
+    for root, _dirs, files in os.walk(CONTENT_DIR):
+        if "_index.nb.md" not in files:
+            continue
+        nb = os.path.join(root, "_index.nb.md")
+        try:
+            nb_txt = open(nb, encoding="utf-8").read()
+        except OSError:
+            continue
+        nb_id = get_uuid(nb_txt)
+        if nb_id:
+            uuid_to_roots.setdefault(nb_id, []).append(root)
+
+    for uid, roots in uuid_to_roots.items():
+        if len(roots) <= 1:
+            continue
+
+        # Finn originalen: mappen med flest git-commits på nb-filen.
+        with_counts = sorted(
+            [(get_commit_count(os.path.join(r, "_index.nb.md")), r) for r in roots],
+            reverse=True
+        )
+        original = with_counts[0][1]
+        for _count, root in with_counts[1:]:
+            new_id = str(uuid.uuid4())
+            print(
+                f"  ⚠  Duplikat UUID {uid} i {root}\n"
+                f"       Original: {original}\n"
+                f"       → regenerert ny UUID: {new_id}"
+            )
+            nb = os.path.join(root, "_index.nb.md")
+            nb_txt = open(nb, encoding="utf-8").read()
+            set_uuid(nb, new_id, nb_txt)
+            changed.append(nb)
+            en = os.path.join(root, "_index.en.md")
+            if os.path.isfile(en):
+                en_txt = open(en, encoding="utf-8").read()
+                set_uuid(en, new_id, en_txt)
+                changed.append(en)
 
     if changed:
         print(f"\n✔ Oppdaterte {len(changed)} fil(er) med UUID")

@@ -35,22 +35,32 @@ def get_display_name(actor, token):
         return actor
 
 
-def get_changed_md_files(sha):
-    """Finn .md-filer endret i den angitte commit-en (sammenlignet med foreldrecommit)."""
-    result = subprocess.run(
-        ['git', 'diff', '--name-only', f'{sha}^1', sha],
-        capture_output=True, text=True
-    )
-    files = []
-    for line in result.stdout.strip().splitlines():
-        line = line.strip()
-        if line.endswith('.md') and os.path.isfile(line):
-            files.append(line)
-    return files
+def get_md_files_by_status(sha):
+    """Returner (added, modified) – to lister med .md-filer fra push-commiten.
+
+    'added' = nye filer (A) – inkl. kopierte mapper. last_editor overskrives alltid.
+    'modified' = endrede filer (M) – eksisterende menneskelig last_editor beholdes.
+    """
+    def run_diff(diff_filter):
+        result = subprocess.run(
+            ['git', 'diff', f'--diff-filter={diff_filter}', '--name-only', f'{sha}^1', sha],
+            capture_output=True, text=True
+        )
+        return [
+            line.strip() for line in result.stdout.strip().splitlines()
+            if line.strip().endswith('.md') and os.path.isfile(line.strip())
+        ]
+
+    return run_diff('A'), run_diff('M')
 
 
-def inject_last_editor(filepath, author):
-    """Sett last_editor i frontmatter hvis mangler eller er bot-verdi. Returnerer True ved endring."""
+def inject_last_editor(filepath, author, force=False):
+    """Sett last_editor i frontmatter.
+
+    force=True  → overstyr alltid (brukes for nylig lagt-til/kopierte filer)
+    force=False → behold eksisterende menneskelig verdi
+    Returnerer True ved endring.
+    """
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
@@ -66,7 +76,7 @@ def inject_last_editor(filepath, author):
     existing = re.search(r'^last_editor:\s*(.*)$', frontmatter, re.MULTILINE)
     if existing:
         current_val = existing.group(1).strip()
-        if current_val and '[bot]' not in current_val:
+        if not force and current_val and '[bot]' not in current_val:
             return False  # menneskelig verdi – behold
         frontmatter = re.sub(
             r'^last_editor:.*$', f'last_editor: {author}',
@@ -91,17 +101,22 @@ if not actor:
 author = get_display_name(actor, token)
 print(f'Actor: {actor} → last_editor: "{author}"')
 
-changed = get_changed_md_files(sha)
-if not changed:
+added, modified = get_md_files_by_status(sha)
+if not added and not modified:
     print('Ingen .md-filer endret i denne pushen')
     raise SystemExit(0)
 
 updated = 0
-for filepath in changed:
-    if inject_last_editor(filepath, author):
-        print(f'  Oppdatert: {filepath}')
+for filepath in added:
+    if inject_last_editor(filepath, author, force=True):
+        print(f'  Ny/kopiert fil – satt: {filepath}')
+        updated += 1
+
+for filepath in modified:
+    if inject_last_editor(filepath, author, force=False):
+        print(f'  Endret fil – satt: {filepath}')
         updated += 1
     else:
-        print(f'  Uendret (menneskelig verdi finnes): {filepath}')
+        print(f'  Endret fil – uendret (menneskelig verdi finnes): {filepath}')
 
 print(f'\n{updated} fil(er) oppdatert')
