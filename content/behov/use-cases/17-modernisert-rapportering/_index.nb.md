@@ -12,11 +12,11 @@ toc: true
 # ⏺ Godkjent
 # ⨂ Avbrutt
 status: Tidlig utkast
-last_editor: erikhag1git (Erik Hagen)
+last_editor: RuneGl
 ---
 ## 1. Mål
 
-Målet er å sikre at statlige myndigheter får nødvendige styringsdata fra kommunesektoren med minimal administrativ byrde. Ved å flytte fokus fra manuelle uttrekk til en moderne arkitektur, skal vi sikre høy datakvalitet for nasjonal statistikk, samtidig som dataene gjøres tilgjengelige for kommunal styring, datadrevet innovasjon og sammenhengende tjenester for barn og unge.
+Målet er å sikre at statlige myndigheter får nødvendige styringsdata fra kommunesektoren med minimal administrativ byrde. Ved å flytte fokus fra mange ulike manuelle uttrekk til datadeling innenfor en moderne arkitektur, skal vi sikre høy datakvalitet for nasjonal statistikk, samtidig som dataene gjøres tilgjengelige for kommunal styring, datadrevet innovasjon og sammenhengende tjenester for barn og unge.
 
 ## 2. Aktører
 
@@ -40,7 +40,7 @@ En relevant hendelse inntreffer i det kommunale fagsystemet som har betydning fo
 1. **Hendelse oppstår:** En saksbehandler ferdigstiller en registrering i fagsystemet.
 2. **Lokal validering:** Fagsystemet sjekker dataene mot innebygde KOSTRA-regler umiddelbart, slik at eventuelle mangler rettes med en gang.
 3. **Hendelsespublisering (Spor A):** Fagsystemet sender en lettvektsmelding (notifikasjon) til en sentral meldingskø. Meldingen inneholder kun metadata (hva som skjedde og en unik referanse-ID), ikke sensitive detaljer.
-4. **Datahenting via API (Spor B):** Den statlige mottakeren plukker opp notifikasjonen og gjør et automatisert API-oppslag mot kommunens fagsystem for å hente de spesifikke detaljene de har hjemmel til å se.
+4. **Datahenting via API (Spor B):** Den statlige mottakeren plukker opp notifikasjonen og gjør et automatisert API-oppslag mot kommunens fagsystem for å hente de spesifikke detaljene de har hjemmel til å se. Notifikasjoner kan være hendelsesdrevne, eller tilstandsdrevne (f.eks oppnådd registerkvalitet, eller passert rapporteringstidspunkt).
 5. **Kvittering og logg:** Systemet logger at data er utlevert, og kommunen får en bekreftelse på at rapporteringsplikten for denne hendelsen er oppfylt.
 
 ## 6. Alternative forløp
