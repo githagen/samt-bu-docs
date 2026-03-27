@@ -58,6 +58,26 @@ jobs:
             done
           fi
 
+      - name: Injiser last_editor for endrede filer
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          TRIGGERING_SHA: ${{ github.sha }}
+        run: |
+          python3 .github/scripts/inject-last-editor.py
+          git add content/
+          if git diff --staged --quiet; then
+            echo "Ingen last_editor-endringer"
+          else
+            git commit -m "Auto: injiser last_editor for menneskelig push [skip ci]"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "Push-forsøk $i feilet, prøver igjen..."
+              sleep 3
+            done
+          fi
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
