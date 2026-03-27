@@ -9,6 +9,11 @@ import os
 import re
 
 MODULE_PATHS = [
+    # Hoved-repoet – git-historikk er allerede tilgjengelig (fetch-depth: 0).
+    # lastmod er overflødig her (Hugo leser det via enableGitInfo), men
+    # last_editor injiseres her som erstatning for frontmatter-lagring.
+    '.',
+    # Modulrepoer – krever egne checkout-steg i hugo.yml (ingen git-historikk i zip).
     '.hugo-modules/team-architecture',
     '.hugo-modules/samt-bu-drafts',
     '.hugo-modules/solution-samt-bu-docs',

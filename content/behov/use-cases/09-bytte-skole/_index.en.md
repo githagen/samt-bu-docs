@@ -5,7 +5,6 @@ linkTitle: "9. Changing School"
 weight: 90
 toc: true
 status: "New"
-last_editor: erikhag1git (Erik Hagen)
 
 ---
 

@@ -2,7 +2,7 @@
 id: 4946639a-d3fc-41df-ac3e-caec302fc4e7
 title: NUBA – Nasjonal enhet for undersøkelse av svikt mot barn
 weight: 20
-last_editor: erikhag1git
+
 ---
 ***Nasjonal enhet for undersøkelse av svikt mot barn (NUBA) er en nyopprettet, uavhengig enhet i Statens helsetilsyn. Enheten har som mandat å undersøke alvorlige saker der barn har blitt utsatt for drap, grov vold, seksuelle overgrep eller alvorlig omsorgssvikt, for å identifisere systemsvikt og forebygge fremtidige hendelser.***
 

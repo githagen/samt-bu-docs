@@ -7,7 +7,6 @@ toc: true
 status: Ny
 draft: false
 # Gyldige statusverdier: Ny | Tidlig utkast | Pågår | Til QA | Godkjent | Avbrutt
-last_editor: erikhag1git (Erik Hagen)
 
 ---
 

@@ -12,7 +12,7 @@ toc: true
 # ⏺ Godkjent
 # ⨂ Avbrutt
 status: Tidlig utkast
-last_editor: RuneGl
+
 ---
 ## 1. Mål
 

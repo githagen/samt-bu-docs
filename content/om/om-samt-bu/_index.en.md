@@ -3,7 +3,6 @@ id: "364728ba-fc9d-4605-9511-57acdbb7f9f3"
 title: "About the SAMT-BU project"
 linkTitle: "About the SAMT-BU project"
 weight: 10
-last_editor: erikhag1git (Erik Hagen)
 
 ---
 

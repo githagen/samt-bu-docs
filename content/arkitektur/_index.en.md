@@ -4,7 +4,6 @@ title: Architecture
 linkTitle: Architecture
 weight: 40
 toc: true
-last_editor: erikhag1git (Erik Hagen)
 
 ---
 Architecture...

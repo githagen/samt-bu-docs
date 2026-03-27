@@ -5,7 +5,6 @@ linkTitle: "6. Data Access for Parents"
 weight: 60
 toc: true
 status: "New"
-last_editor: erikhag1git (Erik Hagen)
 
 ---
 
