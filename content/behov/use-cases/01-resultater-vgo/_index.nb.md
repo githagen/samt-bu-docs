@@ -10,7 +10,7 @@ status: Pågår
 ---
 ## Hvem har spilt inn dette som en case prosjektet SAMT–BU bør jobbe med
 
-Prosjektgruppen i SAMT–BU, basert på felles innsikt fra kommuner, fylkeskommuner og statlige aktører som arbeider med overganger for unge etter videregående opplæring.
+Prosjektgruppen i SAMT–BU, basert på felles innsikt fra kommuner, fylkeskommuner og statlige aktører som arbeider med overganger for unge etter videregående opplæring..
 
 ## Kort beskrivelse av caset (hva er dette / hva handler det om?)
 
