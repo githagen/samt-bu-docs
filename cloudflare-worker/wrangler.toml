@@ -1,0 +1,5 @@
+name = "samt-bu-cms-auth"
+main = "oauth-worker.js"
+compatibility_date = "2026-02-28"
+preview_urls = false
+account_id = "11cfadda66cca20b7736f23e40a070ef"
