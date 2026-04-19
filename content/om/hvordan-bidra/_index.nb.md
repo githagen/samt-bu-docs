@@ -11,7 +11,8 @@ Dette nettstedet er åpent for bidrag fra alle samarbeidspartnere i SAMT-BU-pros
 
 | Metode | Passer for | Krever |
 |--------|-----------|--------|
-| [Innebygd editor](#anbefalt-innebygd-redigering-i-nettleseren) | Fagpersoner og redaktører | GitHub-konto + skrivetilgang |
+| [Innebygd editor](#anbefalt-innebygd-redigering-i-nettleseren) | Fagpersoner og redaktører | GitHub-konto (skrivetilgang valgfritt) |
+| [Gi tilbakemelding](#gi-tilbakemelding) | Alle med innspill eller spørsmål | GitHub-konto |
 | [GitHub-redigering](#alternativ-redigering-direkte-p-github) | Enkeltendringer, tekniske brukere | GitHub-konto + Markdown |
 | [Lokal oppsett](#alternativ-lokal-oppsett-for-utviklere) | Strukturelle endringer, utviklere | Hugo + Git installert |
 
@@ -24,18 +25,20 @@ Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen 
 ### Hva du trenger
 
 - En **GitHub-konto** (opprett gratis på [github.com](https://github.com))
-- **Skrivetilgang** til riktig repo – kontakt en administrator for å få dette første gang
+- **Skrivetilgang** er ikke påkrevd – uten tilgang sendes endringen automatisk som et endringsforslag (pull request) som en administrator kan godkjenne
 
 ### Redigere en eksisterende side
 
 1. Gå til siden du vil redigere
 2. Klikk **«Endre»**-menyen øverst til høyre i headeren
-3. Velg **«Rediger dette kapitlet»**
+3. Velg **«Rediger denne siden»**
 4. Logg inn med GitHub-kontoen din hvis du ikke allerede er innlogget (popup-vindu)
-5. Gjør endringene dine i tekstfeltet
+5. Gjør endringene dine i det visuelle tekstverktøyet
 6. Klikk **«Lagre»**
 
-**Tips:** Bilder kan limes direkte inn i tekstfeltet (Ctrl+V eller høyreklikk → Lim inn) – det finnes foreløpig ingen egen bildeknapp i verktøylinjen.
+**Tips:** Bilder kan limes direkte inn i tekstfeltet (Ctrl+V eller høyreklikk → Lim inn).
+
+Har du skrivetilgang publiseres endringen direkte. Har du ikke skrivetilgang, opprettes det automatisk et endringsforslag (pull request) som en administrator ser over og godkjenner. Du får en lenke til forslaget etter lagring.
 
 Nettstedet oppdateres automatisk etter lagring. En statusindikator nede til venstre i skjermen holder deg oppdatert underveis.
 
@@ -64,6 +67,21 @@ Nettstedet bygges av GitHub Actions. Normalt tar et bygg **ca. 1 minutt**. Hvis 
 
 > **Kort sagt:** Ser du grå hake og teksten «Avløst» i jobbhistorikken, er ikke endringen tapt – den ble publisert av en nyere jobb.
 
+### Gi tilbakemelding
+
+Har du et innspill, en feil å melde eller et spørsmål til innholdet på en side – uten at du vil redigere direkte – kan du bruke **«Gi kommentar»**-funksjonen:
+
+1. Gå til siden det gjelder
+2. Klikk **«Endre»**-menyen og velg **«Gi kommentar»**
+3. Logg inn med GitHub-kontoen din hvis du ikke allerede er innlogget
+4. Fyll inn tittel (forhåndsutfylt med sidenavn) og skriv kommentaren din
+5. Legg eventuelt til lenke til et spesifikt avsnitt i feltet «Spesifikk del av siden»
+6. Klikk **«Send»**
+
+Kommentaren registreres som en GitHub Issue knyttet til siden. Du får en lenke til issuen etter innsending, og kan følge den videre der.
+
+**Alternativt** kan du bruke **«Kommentarer»**-knappen i bunnlinjen for å se eksisterende kommentarer på siden og åpne en ny kommentardialog derfra.
+
 ### Opprette en ny side
 
 1. Gå til siden du vil plassere den nye siden ved siden av (søsken) eller under (underkapittel)
@@ -81,9 +99,9 @@ Passer for enkeltendringer og mindre rettelser uten lokal installasjon. Krever G
 
 **Slik gjør du det:**
 
-1. Gå til siden du vil redigere på [samt-x.github.io/samt-bu-docs](https://samt-x.github.io/samt-bu-docs/)
-2. Klikk lenken **«Rediger på GitHub»** nederst på siden
-3. Gjør endringene dine i Markdown-feltet
+1. Gå til siden du vil redigere
+2. Klikk **«Endre»**-menyen øverst til høyre og velg **«Endre i GitHub»** (nederst i menyen, kursiv)
+3. Gjør endringene dine i Markdown-feltet på GitHub
 4. Rull ned til **«Commit changes»**
 5. Skriv en kort beskrivelse av hva du endret
 6. Velg **«Create a new branch and start a pull request»** (anbefalt) eller commit direkte til `main` hvis du har rettigheter
@@ -166,7 +184,7 @@ content/
   behov/                 ← Behov (use cases)
   pilotering/            ← Piloter
   arkitektur/            ← Arkitektur
-  loesning/              ← Løsninger
+  loesninger/            ← Løsninger
   rammeverk/             ← Rammeverk
   informasjonsmodeller/  ← Informasjonsmodeller
   innsikt/               ← Felles innsikt
